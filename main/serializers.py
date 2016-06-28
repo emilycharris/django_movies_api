@@ -23,6 +23,11 @@ class RatingSerializer(serializers.ModelSerializer):
     movie = serializers.HyperlinkedRelatedField(read_only=True, view_name="movie-detail")
     rater = serializers.HyperlinkedRelatedField(read_only=True, view_name="rater-detail")
 
+    display_name = serializers.SerializerMethodField()
+
     class Meta:
         model = Rating
-        fields = ['rater', 'movie', 'rating', 'timestamp']
+        fields = ['rater', 'movie', 'display_name', 'rating', 'timestamp']
+
+    def get_display_name(self, rating):
+        return rating.movie.title
