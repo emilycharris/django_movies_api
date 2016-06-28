@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from main.views import MovieListCreateAPIView, RaterListCreateAPIView, RatingListCreateAPIView, RatingRetrieveUpdateDestroyAPIView, RaterRetrieveUpdateDestroyAPIView, MovieRetrieveUpdateDestroyAPIView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^movies/$', MovieListCreateAPIView.as_view(), name='movie_list_create_api_view'),
+    url(r'^raters/$', RaterListCreateAPIView.as_view(), name='rater_list_create_api_view'),
+    url(r'^ratings/$', RatingListCreateAPIView.as_view(), name='rating_list_create_api_view'),
+    url(r'^ratings/(?P<pk>\d+)/$', RatingRetrieveUpdateDestroyAPIView.as_view(), name='rating_retrieve_update_destroy_api_view'),
+    url(r'^raters/(?P<pk>\d+)/$', RaterRetrieveUpdateDestroyAPIView.as_view(), name='rater_retrieve__update_destroy_api_view'),
+    url(r'^movies/(?P<pk>\d+)/$', MovieRetrieveUpdateDestroyAPIView.as_view(), name='movie_retrieve_update_destroy_api_view')
 ]
