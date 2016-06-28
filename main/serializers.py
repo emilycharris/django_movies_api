@@ -20,6 +20,9 @@ class RaterSerializer(serializers.ModelSerializer):
 
 class RatingSerializer(serializers.ModelSerializer):
 
+    movie = serializers.HyperlinkedRelatedField(read_only=True, view_name="movie-detail")
+    rater = serializers.HyperlinkedRelatedField(read_only=True, view_name="rater-detail")
+
     class Meta:
         model = Rating
         fields = ['rater', 'movie', 'rating', 'timestamp']

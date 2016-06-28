@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^raters/$', RaterListCreateAPIView.as_view(), name='rater_list_create_api_view'),
     url(r'^ratings/$', RatingListCreateAPIView.as_view(), name='rating_list_create_api_view'),
     url(r'^ratings/(?P<pk>\d+)/$', RatingRetrieveUpdateDestroyAPIView.as_view(), name='rating_retrieve_update_destroy_api_view'),
-    url(r'^raters/(?P<pk>\d+)/$', RaterRetrieveUpdateDestroyAPIView.as_view(), name='rater_retrieve__update_destroy_api_view'),
-    url(r'^movies/(?P<pk>\d+)/$', MovieRetrieveUpdateDestroyAPIView.as_view(), name='movie_retrieve_update_destroy_api_view')
+    url(r'^raters/(?P<pk>\d+)/$', RaterRetrieveUpdateDestroyAPIView.as_view(), name='rater-detail'),
+    url(r'^movies/(?P<pk>\d+)/$', MovieRetrieveUpdateDestroyAPIView.as_view(), name='movie-detail')
 ]
